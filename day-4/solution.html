@@ -56,21 +56,36 @@
     console.log(age)
     // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
     // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
-    let category = document.querySelector('.mw-category'),
+    /*let category = document.querySelector('.mw-category'),
     links = category.querySelectorAll('a'),
     linksArray = Array.from(links),
     linksText = linksArray.map(link => link.textContent),
     hasDe = linksText.filter(text=>text.includes('de'));
-
+      */
 
 
     // 7. sort Exercise
     // Sort the people alphabetically by last name
-      let alphabetically = inventors.sort((a, b)=> a.last > b.last? 1: -1)
+      let alphabetically = people.sort((a, b)=> 
+      { let [aLast, aFirst]=a.split(', ');
+        let [bLast, bFirst]=b.split(', ');
+        return aLast > bLast? 1: -1;
+      });
+      console.log(alphabetically)
     // 8. Reduce Exercise
     // Sum up the instances of each of these
     const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck' ];
-      
+    let transportation = data.reduce((obj, kind)=>{
+      //console.log(kind)
+      //console.log(obj)
+      if(!obj[kind]){
+        obj[kind] = 0;
+      }
+      obj[kind]++
+      return obj
+    }, {});
+
+  console.log(transportation);
   </script>
 </body>
 </html>
