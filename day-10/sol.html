@@ -97,10 +97,16 @@
 
 <script>
   const checkboxes = Array.from(document.querySelectorAll('input'))
-  checkboxes.forEach(checkbox =>{
-    checkbox.addEventListener('change',()=>{
-      console.log(checkbox);
-    })})
+
+  checkboxes.forEach(checkbox =>checkbox.addEventListener('change',checkShift));
+      function checkShift (event) {
+    if (event.shiftKey) {
+      console.log(`shift is pressed`);
+    }
+    else {
+      console.log(event.currentTarget);
+    }
+  }
 </script>
 </body>
 </html>
